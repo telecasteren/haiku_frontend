@@ -1,66 +1,39 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+
+import PageTitle from "@/components/PageTitle";
+import { DashboardCards } from "@/components/DashboardCards/DashboardCards";
+import LatestBlogsList from "@/components/blogs/LatestBlogsList";
+import { TestimonialCarousel } from "@/components/testimonials/TestimonialCarousel";
+import Footer from "@/components/Footer";
+
+
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <div className="flex flex-col gap-4 bg-background p-20 md:p-30 text-foreground">
+        <div className="justify-center">
+          <div className="md:ml-12">
+          <PageTitle title="Welcome to Haiku Coffee"/>
+            <p><i>Speciality craft in every cup</i></p>
+          </div>
+
+          <section id="dashboard-cards" className="mt-12">
+            <DashboardCards />
+          </section>
+
+          <section id="blogs" className="m-12">
+            <LatestBlogsList />
+          </section>
+
+          <section id="testimonials" className="flex flex-col gap-4 text-xl m-20 mt-40 w-fit max-w-200 justify-self-center">
+            <h2>What people are saying about us</h2>
+            <TestimonialCarousel />
+          </section>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </div>
+
+      <Footer />
+    </>
   );
 }
