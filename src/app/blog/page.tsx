@@ -1,13 +1,20 @@
-import PageTitle from "@/components/PageTitle";
-import { blogs } from "@/lib/mockups/blogs";
+import type { Metadata } from 'next'
 import Link from "next/link";
 import Image from "next/image";
+import PageTitle from "@/components/PageTitle";
+import { blogs } from "@/lib/mockups/blogs";
+
+
+export const metadata: Metadata = {
+  title: 'Articles',
+}
 
 
 export default function BlogList() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-background pt-16 text-foreground">
-      <PageTitle title="Welcome to the Articles page" />
+      <PageTitle title="Welcome to the Articles page" className="mt-16"/>
+
       <div className="grid lg:grid-cols-3 gap-4 mt-12 ml-14 mr-14">
         {blogs.map((blog, index) => (
           <Link href={`/blog/${blog.id}`} key={blog.id} className="grid gap-2 mt-4 text-center">

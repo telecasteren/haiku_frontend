@@ -1,11 +1,7 @@
-"use client";
-
 import PageTitle from "@/components/PageTitle";
 import { DashboardCards } from "@/components/DashboardCards/DashboardCards";
 import LatestBlogsList from "@/components/blogs/LatestBlogsList";
 import { TestimonialCarousel } from "@/components/testimonials/TestimonialCarousel";
-import Footer from "@/components/Footer";
-
 
 
 export default function Home() {
@@ -15,7 +11,7 @@ export default function Home() {
         <div className="justify-center">
           <div className="md:ml-12">
           <PageTitle title="Welcome to Haiku Coffee"/>
-            <p><i>Speciality craft in every cup</i></p>
+            <p>Speciality craft in every cup</p>
           </div>
 
           <section id="dashboard-cards" className="mt-12">
@@ -33,7 +29,7 @@ export default function Home() {
         </div>
       </div>
 
-      <Footer />
+
     </>
   );
 }

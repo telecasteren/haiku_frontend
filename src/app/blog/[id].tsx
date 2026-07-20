@@ -1,4 +1,9 @@
 import PageTitle from "@/components/PageTitle";
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: '...',
+}
 
 export default function BlogPage() {
   return (

@@ -5,8 +5,8 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+} from "@/components/ui/nav/navigation-menu";
+import { navigationMenuTriggerStyle } from "@/components/ui/nav/nav-menu-trigger-style";
 import Link from "next/link";
 import { LogoWithText } from "@/components/Logo";
 import { User } from "lucide-react";
@@ -18,6 +18,7 @@ const dropdownItems = [
     links: [
       { href: "/shop/coffee", label: "Coffee" },
       { href: "/shop/equipment", label: "Equipment" },
+      { href: "/shop/merch", label: "Merch" },
     ],
   },
   {
