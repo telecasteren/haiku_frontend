@@ -1,4 +1,5 @@
 import PageTitle from "@/components/PageTitle";
+import { brand } from "@/lib/data/brand";
 import { DashboardCards } from "@/components/DashboardCards/DashboardCards";
 import LatestBlogsList from "@/components/blogs/LatestBlogsList";
 import { TestimonialCarousel } from "@/components/testimonials/TestimonialCarousel";
@@ -6,12 +7,11 @@ import { TestimonialCarousel } from "@/components/testimonials/TestimonialCarous
 
 export default function Home() {
   return (
-    <>
       <div className="flex flex-col gap-4 bg-background p-20 md:p-30 text-foreground">
         <div className="justify-center">
           <div className="md:ml-12">
-          <PageTitle title="Welcome to Haiku Coffee"/>
-            <p>Speciality craft in every cup</p>
+          <PageTitle title={`Welcome to ${brand.name}`}/>
+            <p>{brand.tagline}</p>
           </div>
 
           <section id="dashboard-cards" className="mt-12">
@@ -28,8 +28,5 @@ export default function Home() {
           </section>
         </div>
       </div>
-
-
-    </>
   );
 }
