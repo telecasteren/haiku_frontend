@@ -7,8 +7,7 @@ import { TestimonialCarousel } from "@/components/testimonials/TestimonialCarous
 
 export default function Home() {
   return (
-      <div className="flex flex-col gap-4 bg-background p-20 md:p-30 text-foreground">
-        <div className="justify-center">
+      <div className="flex flex-col gap-4 bg-background p-4 sm:p-6 md:p-30 text-foreground">
           <div className="md:ml-12">
           <PageTitle title={`Welcome to ${brand.name}`}/>
             <p>{brand.tagline}</p>
@@ -22,11 +21,10 @@ export default function Home() {
             <LatestBlogsList />
           </section>
 
-          <section id="testimonials" className="flex flex-col gap-4 text-xl m-20 mt-40 w-fit max-w-200 justify-self-center">
-            <h2>What people are saying about us</h2>
+          <section id="testimonials">
+            <h2 className="text-xl text-center">What people are saying about us</h2>
             <TestimonialCarousel />
           </section>
-        </div>
       </div>
   );
 }

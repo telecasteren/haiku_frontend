@@ -1,25 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Figtree, Inter } from "next/font/google";
+import { Noto_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import "@/css/globals.css";
 import { cn } from "@/lib/utils";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const notoSans = Noto_Sans({ subsets: ["latin"], variable: "--font-sans" });
 
-const figtreeHeading = Figtree({
-  subsets: ["latin"],
+const neueMachina = localFont({
+  src: "../../public/font/PPNeueMachina/PPNeueMachina-Regular.otf",
   variable: "--font-heading",
-});
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -39,11 +30,9 @@ export default function RootLayout({
     <html
       lang="en"
       className={cn(
-        geistSans.variable,
-        geistMono.variable,
         "font-sans",
-        inter.variable,
-        figtreeHeading.variable,
+        notoSans.variable,
+        neueMachina.variable,
       )}
     >
       <body>

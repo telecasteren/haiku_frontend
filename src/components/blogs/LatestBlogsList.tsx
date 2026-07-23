@@ -13,7 +13,7 @@ export default function LatestBlogsList() {
               {blogs.map((blog, index) => (
                 <div key={blog.id} className="flex-1">
                   <div className="grid md:grid-cols-2 gap-4">
-                    <Link href={`/blog/${blog.id}`} className="relative aspect-5/3 block w-4/5">
+                    <Link href={`/blog/${blog.slug}`} className="relative aspect-5/3 block w-4/5">
                       <Image src={blog.image}
                         alt={blog.title}
                         fill

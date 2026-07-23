@@ -25,7 +25,8 @@ const dropdownItems = [
     id: "about",
     label: "About",
     links: [
-      { href: "/about", label: "Our story" },
+    { href: "/blog", label: "Articles" },
+      { href: "/about", label: "About" },
       { href: "/contact", label: "Contact" },
     ],
   },

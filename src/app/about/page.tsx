@@ -35,7 +35,7 @@ export default function AboutPage() {
         ))
       )}
 
-      <p className="text-sm mt-20 justify-self-end inline-flex items-center gap-1">
+      <p className="text-sm text-brand-900 font-semibold mt-20 justify-self-end inline-flex items-center gap-1">
         Yours truly, {brand.name}
         <Coffee className="inline" width={18} height={18} />
       </p>
