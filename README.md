@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Haiku Coffee
 
-## Getting Started
+A small Next.js + TypeScript site that demonstrates a branded storefront and editorial experience.
 
-First, run the development server:
+Haiku Coffee is built with the Next.js App Router and Tailwind CSS. Includes home, blog, shop, events and contact pages. Content is currently mocked in the repository -- will be replaced with API calls or a CMS later.
+
+## Quick start
+
+Requirements
+
+- Node.js (>=18 is recommended)
+- pnpm, npm, or yarn (`pnpm` is recommended)
+
+Install dependencies and run dev server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# with pnpm (recommended)
+pnpm install
 pnpm dev
-# or
-bun dev
+
+# with npm
+npm install
+npm run dev
+
+# with yarn
+yarn install
+yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Available scripts [package.json](package.json)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `dev` — run the Next.js development server (`next dev`)
+- `build` — build the app for production (`next build`)
+- `start` — start the built app (`next start`)
+- `lint` — run ESLint (`eslint`)
 
-## Learn More
+Run the production build locally with:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm build
+pnpm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Where content lives
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Brand metadata: `src/lib/data/brand.ts`
+- Mock blog posts: `src/lib/mockups/blogs.ts` (used by `src/app/blog` and `src/app/blog/[slug]`)
+- Mock shop items: `src/lib/mockups/shop.ts` (used by `src/app/shop`)
+- Testimonials: `src/lib/data/testimonials.ts`
+- Images and static assets: `public/` (examples in `public/mockups` and `public/shop`)
 
-## Deploy on Vercel
+## Development notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- The site is scaffolded to be easy to extend. Will be replaced from the mock data in `src/lib/mockups/*.ts` to the appropriate API or a CMS later.
+- Images referenced in the mock data are under `public/`.
+- shadcn UI pieces are included under `src/components/ui`. Primitive components maintained here.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Linting
+
+Run the linter with:
+
+```bash
+pnpm run lint
+# or: npm run lint
+```
+
+## Deployment
+
+This app will be deployed to Vercel or Netlify.
+
+## Next steps / Suggestions
+
+- Replace local mock data with a CMS or headless API for dynamic content.
+- Add automated tests and CI pipeline.
+- Add a LICENSE file if you want to open-source the project.
