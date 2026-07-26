@@ -30,7 +30,7 @@ export default function EquipmentPage() {
             price={item.price}
             onSale={item.onSale}
             description={item.description}
-            image={item.image}
+            image={(item.image) ? item.image : ""}
           />
         ))}
       </section>

@@ -31,7 +31,7 @@ export default function CoffeePage() {
             price={item.price}
             onSale={item.onSale}
             description={item.description}
-            image={item.image}
+            image={(item.image) ? item.image : ""}
           />
         ))}
       </section>

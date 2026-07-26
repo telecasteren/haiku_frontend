@@ -17,14 +17,16 @@ export default function LatestBlogsList() {
                     href={`/blog/${blog.slug}`}
                     className="relative aspect-5/3 block w-4/5"
                   >
-                    <Image
-                      src={blog.image}
-                      alt={blog.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 500px"
-                      priority={index === 0}
-                      className="rounded object-cover hover:brightness-75 transition duration-200"
-                    />
+                    {blog.image && (
+                      <Image
+                        src={blog.image}
+                        alt={blog.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 500px"
+                        priority={index === 0}
+                        className="rounded object-cover hover:brightness-75 transition duration-200"
+                      />
+                    )}
                   </Link>
                   <div className="flex flex-col gap-2">
                     <Link href={`/blog/${blog.slug}`}>

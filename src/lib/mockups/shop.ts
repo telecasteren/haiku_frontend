@@ -1,16 +1,6 @@
-export interface ShopItems {
-  id: number;
-  type: string;
-  price: number;
-  onSale: boolean;
-  title: string;
-  description: string;
-  image: string;
-}
+import type { Product } from "@/lib/models/Product";
 
-// const shopTypes = ["merch", "beans", "equipment"]
-
-export const ShopItems: ShopItems[] = [
+export const ShopItems: Product[] = [
   {
     id: 1,
     title: "Sun T-Shirt",
@@ -19,6 +9,7 @@ export const ShopItems: ShopItems[] = [
     onSale: false,
     description: "Oversized T-Shirt with sun emblem on back.",
     image: "/shop/merch/lala-azizli-T-r1Y3vG-7M-unsplash.jpg",
+    addedDate: new Date(),
   },
   {
     id: 2,
@@ -28,6 +19,7 @@ export const ShopItems: ShopItems[] = [
     onSale: false,
     description: "ESTd coffee mug with location.",
     image: "/shop/merch/calvin-craig-bOg8cRMh6To-unsplash.jpg",
+    addedDate: new Date(),
   },
   {
     id: 3,
@@ -37,6 +29,7 @@ export const ShopItems: ShopItems[] = [
     onSale: false,
     description: "Grace Fitted T-Shirt with Eagle emblem on the back.",
     image: "/shop/merch/keagan-henman-XYtuOYfIg_M-unsplash.jpg",
+    addedDate: new Date(),
   },
   {
     id: 4,
@@ -47,6 +40,7 @@ export const ShopItems: ShopItems[] = [
     description:
       "Get a random coffee shop artifact by supporting various coffee farmers.",
     image: "/shop/merch/christina-radevich-PoG2cCucTHE-unsplash.jpg",
+    addedDate: new Date(),
   },
   {
     id: 5,
@@ -56,6 +50,7 @@ export const ShopItems: ShopItems[] = [
     onSale: false,
     description: "High-quality coffee beans from Brazil.",
     image: "/shop/coffee/lex-sirikiat-QouiCn7u6kw-unsplash.jpg",
+    addedDate: new Date(),
   },
   {
     id: 6,
@@ -66,6 +61,7 @@ export const ShopItems: ShopItems[] = [
     description:
       "Perfectly fine, yet it did not meet our quality standards. Offered at a discounted price.",
     image: "/shop/coffee/justus-menke-83ijPo1g9og-unsplash.jpg",
+    addedDate: new Date(),
   },
   {
     id: 7,
@@ -75,6 +71,7 @@ export const ShopItems: ShopItems[] = [
     onSale: false,
     description: "Natural Ethiopian coffee beans of High Quality.",
     image: "/shop/coffee/nathan-dumlao-bx_JfZtQ-Hs-unsplash.jpg",
+    addedDate: new Date(),
   },
   {
     id: 8,
@@ -84,6 +81,7 @@ export const ShopItems: ShopItems[] = [
     onSale: false,
     description: "4 x 6cl Espresso Glasses in thick and sturdy glassware.",
     image: "/shop/equipment/nathan-dumlao-dvuHNTJxIsg-unsplash.jpg",
+    addedDate: new Date(),
   },
   {
     id: 9,
@@ -94,6 +92,7 @@ export const ShopItems: ShopItems[] = [
     description:
       "High-performance espresso machine by Barsetto. Maintenance service sold separately.",
     image: "/shop/equipment/qingyu-Ft1yz6M6-yQ-unsplash.jpg",
+    addedDate: new Date(),
   },
   {
     id: 10,
@@ -103,5 +102,6 @@ export const ShopItems: ShopItems[] = [
     onSale: true,
     description: "2 x 2.5dl Cappuccino Mugs in thick and sturdy porcelain.",
     image: "/shop/equipment/tabitha-turner-KWZ-rg9o76A-unsplash.jpg",
+    addedDate: new Date(),
   },
 ];

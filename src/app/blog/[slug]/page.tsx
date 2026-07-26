@@ -33,7 +33,7 @@ export default async function BlogPage({
 }) {
   const { slug } = await params;
   const blog = slug ? blogs.find((b) => b.slug === slug) : undefined;
-  const formattedDate = blog ? formatDate(blog.date) : undefined;
+  const formattedDate = blog ? formatDate(blog.createdAt) : undefined;
 
   if (!blog) {
     return (
@@ -74,17 +74,18 @@ export default async function BlogPage({
       </header>
 
       <div className="mt-10 overflow-hidden rounded-xl bg-muted/20">
-        <Image
-          src={blog.image}
-          alt={blog.title}
-          width={1200}
-          height={700}
-          className="h-auto w-full object-cover"
-          priority
-          loading="eager"
-        />
+        {blog.image && (
+          <Image
+            src={blog.image}
+            alt={blog.title}
+            width={1200}
+            height={700}
+            className="h-auto w-full object-cover"
+            priority
+            loading="eager"
+          />
+        )}
       </div>
-
       <section className="mt-5 p-6 md:p-8">
         <p className="text-base leading-8 text-foreground/90 md:text-lg">
           {blog.content}

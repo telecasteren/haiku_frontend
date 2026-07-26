@@ -19,7 +19,6 @@ export default function MerchPage() {
       />
 
       <section className="mt-10 ml-10 mr-10 md:ml-20 md:mr-20">
-        {/*<section className="absolute top-20 mx-auto p-4 z-50 text-white bg-black/50 rounded">*/}
         <PageTitle title="View our selection of merch" />
         <p>Get your brewing merch here.</p>
       </section>
@@ -32,7 +31,7 @@ export default function MerchPage() {
             price={item.price}
             onSale={item.onSale}
             description={item.description}
-            image={item.image}
+            image={(item.image) ? item.image : ""}
           />
         ))}
       </section>
