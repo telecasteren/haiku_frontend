@@ -1,4 +1,4 @@
-import { LogoWithText } from "@/components/Logo";
+import { LogoWithText } from "@/components/LogoWithText";
 
 export const brand = {
   name: "Haiku Coffee",

@@ -11,7 +11,10 @@ import {
 export const TestimonialCarousel = () => {
   return (
     <>
-      <Carousel opts={{ align: "start", loop: true }} className="w-full max-w-4xl mt-6 mx-auto">
+      <Carousel
+        opts={{ align: "start", loop: true }}
+        className="w-full max-w-4xl mt-6 mx-auto"
+      >
         <CarouselContent className="items-stretch">
           {testimonials.map((testimonial) => (
             <CarouselItem key={testimonial.id} className="md:basis-1/2">

@@ -38,8 +38,17 @@ export default async function BlogPage({
   if (!blog) {
     return (
       <div className="mx-auto flex gap-4 min-h-screen w-full max-w-3xl flex-col px-6 pb-20 pt-28 items-center">
-        <PageTitle title="Not found, check the URL." className="mx-auto bg-brand-200 p-4 rounded-lg" />
-        <Link href="/blog" className="flex items-center gap-2 p-2 rounded-lg hover:bg-brand-50 hover:scale-95 transition duration-200"><ArrowLeft/>Go to Articles</Link>
+        <PageTitle
+          title="Not found, check the URL."
+          className="mx-auto bg-brand-200 p-4 rounded-lg"
+        />
+        <Link
+          href="/blog"
+          className="flex items-center gap-2 p-2 rounded-lg hover:bg-brand-50 hover:scale-95 transition duration-200"
+        >
+          <ArrowLeft />
+          Go to Articles
+        </Link>
       </div>
     );
   }
@@ -77,7 +86,9 @@ export default async function BlogPage({
       </div>
 
       <section className="mt-5 p-6 md:p-8">
-        <p className="text-base leading-8 text-foreground/90 md:text-lg">{blog.content}</p>
+        <p className="text-base leading-8 text-foreground/90 md:text-lg">
+          {blog.content}
+        </p>
       </section>
     </article>
   );

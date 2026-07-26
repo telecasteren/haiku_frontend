@@ -17,8 +17,7 @@ export const ShopItems: ShopItems[] = [
     type: "merch",
     price: 11,
     onSale: false,
-    description:
-      "Oversized T-Shirt with sun emblem on back.",
+    description: "Oversized T-Shirt with sun emblem on back.",
     image: "/shop/merch/lala-azizli-T-r1Y3vG-7M-unsplash.jpg",
   },
   {
@@ -27,8 +26,7 @@ export const ShopItems: ShopItems[] = [
     type: "merch",
     price: 15,
     onSale: false,
-    description:
-      "ESTd coffee mug with location.",
+    description: "ESTd coffee mug with location.",
     image: "/shop/merch/calvin-craig-bOg8cRMh6To-unsplash.jpg",
   },
   {
@@ -37,8 +35,7 @@ export const ShopItems: ShopItems[] = [
     type: "merch",
     price: 10,
     onSale: false,
-    description:
-      "Grace Fitted T-Shirt with Eagle emblem on the back.",
+    description: "Grace Fitted T-Shirt with Eagle emblem on the back.",
     image: "/shop/merch/keagan-henman-XYtuOYfIg_M-unsplash.jpg",
   },
   {
@@ -57,8 +54,7 @@ export const ShopItems: ShopItems[] = [
     type: "beans",
     price: 12,
     onSale: false,
-    description:
-      "High-quality coffee beans from Brazil.",
+    description: "High-quality coffee beans from Brazil.",
     image: "/shop/coffee/lex-sirikiat-QouiCn7u6kw-unsplash.jpg",
   },
   {
@@ -77,8 +73,7 @@ export const ShopItems: ShopItems[] = [
     type: "beans",
     price: 16,
     onSale: false,
-    description:
-      "Natural Ethiopian coffee beans of High Quality.",
+    description: "Natural Ethiopian coffee beans of High Quality.",
     image: "/shop/coffee/nathan-dumlao-bx_JfZtQ-Hs-unsplash.jpg",
   },
   {
@@ -87,8 +82,7 @@ export const ShopItems: ShopItems[] = [
     type: "equipment",
     price: 35,
     onSale: false,
-    description:
-      "4 x 6cl Espresso Glasses in thick and sturdy glassware.",
+    description: "4 x 6cl Espresso Glasses in thick and sturdy glassware.",
     image: "/shop/equipment/nathan-dumlao-dvuHNTJxIsg-unsplash.jpg",
   },
   {
@@ -107,8 +101,7 @@ export const ShopItems: ShopItems[] = [
     type: "equipment",
     price: 50,
     onSale: true,
-    description:
-      "2 x 2.5dl Cappuccino Mugs in thick and sturdy porcelain.",
+    description: "2 x 2.5dl Cappuccino Mugs in thick and sturdy porcelain.",
     image: "/shop/equipment/tabitha-turner-KWZ-rg9o76A-unsplash.jpg",
   },
-]
+];

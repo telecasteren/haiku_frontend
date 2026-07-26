@@ -29,11 +29,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn(
-        "font-sans",
-        notoSans.variable,
-        neueMachina.variable,
-      )}
+      className={cn("font-sans", notoSans.variable, neueMachina.variable)}
     >
       <body>
         <Header />

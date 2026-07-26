@@ -23,7 +23,9 @@ export const TestimonialCard = ({ testimonial }: TestimonialCardProps) => {
 
       <CardFooter className="mt-auto items-start border-t border-brand-100/90 pt-4">
         <div className="space-y-0.5">
-          <p className="font-heading text-sm font-semibold text-brand-900">{testimonial.name}</p>
+          <p className="font-heading text-sm font-semibold text-brand-900">
+            {testimonial.name}
+          </p>
           <p className="text-xs text-muted-foreground">{testimonial.title}</p>
         </div>
       </CardFooter>

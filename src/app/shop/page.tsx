@@ -1,9 +1,9 @@
 import PageTitle from "@/components/PageTitle";
-import type { Metadata } from 'next'
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Shop',
-}
+  title: "Shop",
+};
 
 export default function ShopPage() {
   return (

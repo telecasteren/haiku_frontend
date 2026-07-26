@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/nav/navigation-menu";
 import { navigationMenuTriggerStyle } from "@/components/ui/nav/nav-menu-trigger-style";
 import Link from "next/link";
-import { LogoWithText } from "@/components/Logo";
+import { LogoWithText } from "@/components/LogoWithText";
 import { User } from "lucide-react";
 
 const dropdownItems = [
@@ -25,7 +25,7 @@ const dropdownItems = [
     id: "about",
     label: "About",
     links: [
-    { href: "/blog", label: "Articles" },
+      { href: "/blog", label: "Articles" },
       { href: "/about", label: "About" },
       { href: "/contact", label: "Contact" },
     ],
@@ -34,8 +34,8 @@ const dropdownItems = [
     id: "user",
     label: <User size={20} aria-label="Log in / Sign up" />,
     links: [
-      { href: "/auth/signup", label: "Sign up" },
-      { href: "/auth/login", label: "Log in" },
+      { href: "/signup", label: "Sign up" },
+      { href: "/login", label: "Log in" },
     ],
   },
 ];
