@@ -34,8 +34,8 @@ const dropdownItems = [
     id: "user",
     label: <User size={20} aria-label="Log in / Sign up" />,
     links: [
-      { href: "/signup", label: "Sign up" },
       { href: "/login", label: "Log in" },
+      { href: "/signup", label: "Sign up" },
     ],
   },
 ];
