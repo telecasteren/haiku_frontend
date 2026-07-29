@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { formatDate } from "@/lib/utils";
-import { blogs } from "@/lib/mockups/blogs";
-import PageTitle from "@/components/PageTitle";
+import { blogs } from "@/services/mockups/blogs";
+import PageTitle from "@/components/layout/PageTitle";
 import { ArrowLeft } from "lucide-react";
 
 export async function generateMetadata({

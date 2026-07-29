@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import PageTitle from "@/components/PageTitle";
-import Hero from "@/components/Hero";
+import PageTitle from "@/components/layout/PageTitle";
+import Hero from "@/components/layout/Hero";
 import { brand } from "@/lib/data/brand";
 import { aboutSection } from "@/lib/data/about-text";
 import { Coffee } from "lucide-react";

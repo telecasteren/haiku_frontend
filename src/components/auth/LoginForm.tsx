@@ -1,26 +1,45 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
-import { cn } from "@/lib/utils"
-import { brand } from "@/lib/data/brand"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
+import { cn } from "@/lib/utils";
+import { brand } from "@/lib/data/brand";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import {
   Field,
   FieldDescription,
   FieldGroup,
   FieldLabel,
   FieldSeparator,
-} from "@/components/ui/field"
+  FieldError
+} from "@/components/ui/field";
+import { toErrors } from "@/lib/utils";
+import { useApiHandler } from "@/hooks/useApiHandler";
 
 export default function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { submit, fieldErrors, globalError, loading } = useApiHandler(
+    "/api/auth/login",
+    "/account"
+  );
+
+  async function handleSubmit(e: React.SubmitEvent) {
+    e.preventDefault();
+    await submit({ email, password })
+  }
+
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card className="overflow-hidden p-0">
         <CardContent className="grid p-0 md:grid-cols-2">
-          <form className="p-6 md:p-8">
+          <form onSubmit={handleSubmit} className="p-6 md:p-8">
             <FieldGroup>
               <div className="flex flex-col items-center gap-2 text-center">
                 <h1 className="text-2xl font-bold">Welcome back</h1>
@@ -28,16 +47,25 @@ export default function LoginForm({
                   Login to your {brand.name} account
                 </p>
               </div>
-              <Field>
+              {globalError && (
+                <div  aria-live="polite">
+                  <FieldError errors={[{ message: globalError }]} />
+                </div>
+              )}
+              <Field data-invalid={!!fieldErrors.email}>
                 <FieldLabel htmlFor="email">Email</FieldLabel>
                 <Input
                   id="email"
                   type="email"
                   placeholder="m@example.com"
                   required
+                  value={email}
+                  autoComplete="email"
+                  onChange={(e) => setEmail(e.target.value)}
                 />
+                <FieldError errors={toErrors(fieldErrors.email)} />
               </Field>
-              <Field>
+              <Field data-invalid={!!fieldErrors.password}>
                 <div className="flex items-center">
                   <FieldLabel htmlFor="password">Password</FieldLabel>
                   <a
@@ -47,10 +75,15 @@ export default function LoginForm({
                     Forgot your password?
                   </a>
                 </div>
-                <Input id="password" type="password" required />
+                <Input id="password" type="password" required
+                  value={password}
+                  autoComplete="current-password"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <FieldError errors={toErrors(fieldErrors.password)} />
               </Field>
               <Field>
-                <Button type="submit">Login</Button>
+                <Button type="submit" disabled={loading}>{loading ? "Logging in..." : "Login"}</Button>
               </Field>
               <FieldSeparator className="*:data-[slot=field-separator-content]:bg-card">
                 Or continue with
@@ -76,7 +109,13 @@ export default function LoginForm({
                 </Button>
               </Field>
               <FieldDescription className="text-center">
-                Don&apos;t have an account? <a href="/signup" className="underline-offset-2 hover:underline">Sign up</a>
+                Don&apos;t have an account?{" "}
+                <a
+                  href="/signup"
+                  className="underline-offset-2 hover:underline"
+                >
+                  Sign up
+                </a>
               </FieldDescription>
             </FieldGroup>
           </form>
@@ -97,5 +136,5 @@ export default function LoginForm({
         and <a href="#">Privacy Policy</a>.
       </FieldDescription>
     </div>
-  )
+  );
 }

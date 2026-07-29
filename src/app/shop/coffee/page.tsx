@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import PageTitle from "@/components/PageTitle";
-import Hero from "@/components/Hero";
+import PageTitle from "@/components/layout/PageTitle";
+import Hero from "@/components/layout/Hero";
 import ItemCard from "@/components/ItemCard";
-import { ShopItems } from "@/lib/mockups/shop";
+import { ShopItems } from "@/services/mockups/shop";
 
 export const metadata: Metadata = {
   title: "Coffee beans",
@@ -31,7 +31,7 @@ export default function CoffeePage() {
             price={item.price}
             onSale={item.onSale}
             description={item.description}
-            image={(item.image) ? item.image : ""}
+            image={item.image ? item.image : ""}
           />
         ))}
       </section>

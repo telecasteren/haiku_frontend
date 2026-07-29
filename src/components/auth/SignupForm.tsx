@@ -1,25 +1,47 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import {
   Field,
   FieldDescription,
   FieldGroup,
   FieldLabel,
   FieldSeparator,
-} from "@/components/ui/field"
+  FieldError,
+} from "@/components/ui/field";
+import { toErrors } from "@/lib/utils";
+import { useApiHandler } from "@/hooks/useApiHandler";
+
 
 export default function SignupForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+
+    const { submit, fieldErrors, globalError, loading } = useApiHandler(
+      "/api/auth/signup",
+      "/account"
+    );
+
+  async function handleSubmit(e: React.SubmitEvent) {
+    e.preventDefault();
+    await submit({ name, email, password, confirmPassword })
+  }
+
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card className="overflow-hidden p-0">
         <CardContent className="grid p-0 md:grid-cols-2">
-          <form className="p-6 md:p-8">
+          <form onSubmit={handleSubmit} className="p-6 md:p-8">
             <FieldGroup>
               <div className="flex flex-col items-center gap-2 text-center">
                 <h1 className="text-2xl font-bold">Create your account</h1>
@@ -27,26 +49,56 @@ export default function SignupForm({
                   Enter your email below to create your account
                 </p>
               </div>
-              <Field>
+              {globalError && (
+                <div  aria-live="polite">
+                  <FieldError errors={[{ message: globalError }]} />
+                </div>
+                )}
+              <Field data-invalid={!!fieldErrors.name}>
+                <FieldLabel htmlFor="name">Name</FieldLabel>
+                <Input
+                  id="name"
+                  type="text"
+                  placeholder="John Doe"
+                  required
+                  value={name}
+                  autoComplete="name"
+                  onChange={(e) => setName(e.target.value)}
+                />
+                 <FieldError errors={toErrors(fieldErrors.name)} />
+              </Field>
+              <Field data-invalid={!!fieldErrors.email}>
                 <FieldLabel htmlFor="email">Email</FieldLabel>
                 <Input
                   id="email"
                   type="email"
                   placeholder="m@example.com"
                   required
+                  value={email}
+                  autoComplete="email"
+                  onChange={(e) => setEmail(e.target.value)}
                 />
+                 <FieldError errors={toErrors(fieldErrors.email)} />
               </Field>
               <Field>
                 <Field className="grid grid-cols-2 gap-4">
-                  <Field>
+                  <Field data-invalid={!!fieldErrors.password}>
                     <FieldLabel htmlFor="password">Password</FieldLabel>
-                    <Input id="password" type="password" required />
+                    <Input id="password" type="password" required
+                    value={password}
+                    autoComplete="new-password"
+                      onChange={(e) => setPassword(e.target.value)} />
+                     <FieldError errors={toErrors(fieldErrors.password)} />
                   </Field>
-                  <Field>
+                  <Field data-invalid={!!fieldErrors.confirmPassword}>
                     <FieldLabel htmlFor="confirm-password">
                       Confirm Password
                     </FieldLabel>
-                    <Input id="confirm-password" type="password" required />
+                    <Input id="confirm-password" type="password" required
+                    value={confirmPassword}
+                    autoComplete="new-password"
+                      onChange={(e) => setConfirmPassword(e.target.value)} />
+                    <FieldError errors={toErrors(fieldErrors.confirmPassword)} />
                   </Field>
                 </Field>
                 <FieldDescription>
@@ -54,7 +106,7 @@ export default function SignupForm({
                 </FieldDescription>
               </Field>
               <Field>
-                <Button type="submit">Create Account</Button>
+                <Button type="submit" disabled={loading}>{loading ? "Creating Account..." : "Create Account"}</Button>
               </Field>
               <FieldSeparator className="*:data-[slot=field-separator-content]:bg-card">
                 Or continue with
@@ -80,7 +132,10 @@ export default function SignupForm({
                 </Button>
               </Field>
               <FieldDescription className="text-center">
-                Already have an account? <a href="/login" className="underline-offset-2 hover:underline">Log in</a>
+                Already have an account?{" "}
+                <a href="/login" className="underline-offset-2 hover:underline">
+                  Log in
+                </a>
               </FieldDescription>
             </FieldGroup>
           </form>
@@ -101,5 +156,5 @@ export default function SignupForm({
         and <a href="#">Privacy Policy</a>.
       </FieldDescription>
     </div>
-  )
+  );
 }

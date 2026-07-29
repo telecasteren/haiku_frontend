@@ -1,4 +1,4 @@
-import PageTitle from "@/components/PageTitle";
+import PageTitle from "@/components/layout/PageTitle";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { blogs } from "@/lib/mockups/blogs"; // will move to API later
+import { blogs } from "@/services/mockups/blogs"; // will move to API later
 
 export default function LatestBlogsList() {
   return (

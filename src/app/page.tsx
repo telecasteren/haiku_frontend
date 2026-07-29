@@ -1,6 +1,6 @@
-import PageTitle from "@/components/PageTitle";
+import PageTitle from "@/components/layout/PageTitle";
 import { brand } from "@/lib/data/brand";
-import { DashboardCards } from "@/components/DashboardCards/DashboardCards";
+import { DashboardCards } from "@/components/dashboard/DashboardCards";
 import LatestBlogsList from "@/components/blogs/LatestBlogsList";
 import { TestimonialCarousel } from "@/components/testimonials/TestimonialCarousel";
 

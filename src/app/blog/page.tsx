@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import PageTitle from "@/components/PageTitle";
-import { blogs } from "@/lib/mockups/blogs";
+import PageTitle from "@/components/layout/PageTitle";
+import { blogs } from "@/services/mockups/blogs";
 
 export const metadata: Metadata = {
   title: "Articles",
@@ -32,7 +32,7 @@ export default function BlogList() {
                   priority={index === 0}
                   className="rounded object-cover hover:brightness-75 transition duration-200"
                 />
-                )}
+              )}
             </div>
             <h3 className="text-xl">{blog.title}</h3>
           </Link>
