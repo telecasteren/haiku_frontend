@@ -22,7 +22,7 @@ export default function EquipmentPage() {
         <p>Get your next brewing equipment.</p>
       </section>
 
-      <section className="grid grid-cols-1 gap-4 md:grid-cols-2 mt-10 ml-10 mr-10 md:ml-20 md:mr-20">
+      <section className="grid grid-cols-1 gap-4 md:grid-cols-2 mt-10 mb-10 ml-10 mr-10 md:ml-20 md:mr-20">
         {filteredItems.map((item) => (
           <ItemCard
             key={item.id}
