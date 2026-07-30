@@ -70,3 +70,29 @@ pnpm run format
 ## Deployment
 
 This app will be deployed to Vercel or Netlify.
+
+## Acknowledgements
+
+**Unsplash creators (image assets)**
+
+- Beau Carpenter
+- Bennie Bates
+- Cafeconcetto
+- Calvin Craig
+- Ceyda Ciftci
+- Christina Radevich
+- Eiliv Aceron
+- Justus Menke
+- Keagan Henman
+- Kelsen Fernandes
+- Kristian Ryan Alimon
+- Lala Azizli
+- Lex Sirikiat
+- Mike Kenneally
+- Nathan Dumlao
+- Petr Sevcovic
+- Point Normal
+- Qingyu
+- Ruben Ramirez
+- Tabitha Turner
+- With Mahdy
