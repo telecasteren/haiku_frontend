@@ -28,6 +28,7 @@ export default function MerchPage() {
           <ItemCard
             key={item.id}
             title={item.title}
+            slug={item.slug}
             price={item.price}
             onSale={item.onSale}
             description={item.description}

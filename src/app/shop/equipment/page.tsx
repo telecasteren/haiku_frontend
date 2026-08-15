@@ -27,6 +27,7 @@ export default function EquipmentPage() {
           <ItemCard
             key={item.id}
             title={item.title}
+            slug={item.slug}
             price={item.price}
             onSale={item.onSale}
             description={item.description}
