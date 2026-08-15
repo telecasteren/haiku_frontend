@@ -71,29 +71,21 @@ export default async function Header() {
           {isLoggedIn ? (
             <NavigationMenuItem>
               <NavigationMenuTrigger aria-label="Account">
-                 <User size={20} aria-hidden />
+                <User size={20} aria-hidden />
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <NavigationMenuLink href="/account">
-                  Account
-                </NavigationMenuLink>
+                <NavigationMenuLink href="/account">Account</NavigationMenuLink>
                 <LogoutButton aria-label="Log out" />
               </NavigationMenuContent>
             </NavigationMenuItem>
-          )
-          :
-          (
+          ) : (
             <NavigationMenuItem>
               <NavigationMenuTrigger aria-label="Log in / Sign up">
-                 <User size={20} aria-hidden />
+                <User size={20} aria-hidden />
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <NavigationMenuLink href="/login">
-                  Log in
-                </NavigationMenuLink>
-                <NavigationMenuLink href="/signup">
-                  Sign up
-                </NavigationMenuLink>
+                <NavigationMenuLink href="/login">Log in</NavigationMenuLink>
+                <NavigationMenuLink href="/signup">Sign up</NavigationMenuLink>
               </NavigationMenuContent>
             </NavigationMenuItem>
           )}

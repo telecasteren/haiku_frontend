@@ -11,7 +11,9 @@ export const createSession = async (userId: string): Promise<string> => {
     .sign(secret);
 };
 
-export const verifySession = async (token: string): Promise<{ userId: string } | null> => {
+export const verifySession = async (
+  token: string,
+): Promise<{ userId: string } | null> => {
   try {
     const { payload } = await jwtVerify(token, secret);
     if (!payload.sub) return null;
@@ -19,4 +21,4 @@ export const verifySession = async (token: string): Promise<{ userId: string } |
   } catch {
     return null;
   }
-}
+};

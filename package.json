@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepare": "husky"
   },
   "packageManager": "pnpm@11.17.0",
   "dependencies": {
@@ -21,7 +22,6 @@
     "lucide-react": "^1.18.0",
     "next": "16.2.9",
     "postcss": "^8.5.15",
-    "prettier": "^3.9.6",
     "radix-ui": "^1.5.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
@@ -36,8 +36,11 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
+    "eslint": "^9.39.4",
     "eslint-config-next": "16.2.9",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.2.0",
+    "prettier": "^3.9.6",
     "typescript": "^5"
   },
   "eslintConfig": {
@@ -45,5 +48,14 @@
   },
   "prettier": {
     "singleQuote": false
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --max-warnings=0 --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,css,scss,html,yml,yaml}": [
+      "prettier --write"
+    ]
   }
 }

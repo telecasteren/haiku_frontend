@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 export default async function AccountPage() {
-  const user = await requireAuth()
+  const user = await requireAuth();
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-8 bg-background pt-16 text-foreground">

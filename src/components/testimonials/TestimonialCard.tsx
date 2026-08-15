@@ -13,10 +13,10 @@ interface TestimonialCardProps {
 
 export const TestimonialCard = ({ testimonial }: TestimonialCardProps) => {
   return (
-    <Card className="border border-brand-200/70 bg-linear-to-b from-brand-50/60 to-background shadow-md ring-1 ring-brand-100/70">
+    <Card className="border border-brand-200/70">
       <CardContent className="pt-1">
         <CardDescription className="space-y-4 text-base leading-relaxed text-foreground">
-          <Quote className="h-5 w-5 text-brand-600" aria-hidden="true" />
+          <Quote className="h-4 w-4 text-brand-600" aria-hidden="true" />
           <p className="text-balance">“{testimonial.quote}”</p>
         </CardDescription>
       </CardContent>

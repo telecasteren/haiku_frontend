@@ -17,24 +17,23 @@ import {
 import { toErrors } from "@/lib/utils";
 import { useApiHandler } from "@/hooks/useApiHandler";
 
-
 export default function SignupForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
-    const { submit, fieldErrors, globalError, loading } = useApiHandler(
-      "/api/auth/signup",
-      "/account"
-    );
+  const { submit, fieldErrors, globalError, loading } = useApiHandler(
+    "/api/auth/signup",
+    "/account",
+  );
 
   async function handleSubmit(e: React.SubmitEvent) {
     e.preventDefault();
-    await submit({ name, email, password, confirmPassword })
+    await submit({ name, email, password, confirmPassword });
   }
 
   return (
@@ -50,10 +49,10 @@ export default function SignupForm({
                 </p>
               </div>
               {globalError && (
-                <div  aria-live="polite">
+                <div aria-live="polite">
                   <FieldError errors={[{ message: globalError }]} />
                 </div>
-                )}
+              )}
               <Field data-invalid={!!fieldErrors.name}>
                 <FieldLabel htmlFor="name">Name</FieldLabel>
                 <Input
@@ -65,7 +64,7 @@ export default function SignupForm({
                   autoComplete="name"
                   onChange={(e) => setName(e.target.value)}
                 />
-                 <FieldError errors={toErrors(fieldErrors.name)} />
+                <FieldError errors={toErrors(fieldErrors.name)} />
               </Field>
               <Field data-invalid={!!fieldErrors.email}>
                 <FieldLabel htmlFor="email">Email</FieldLabel>
@@ -78,27 +77,37 @@ export default function SignupForm({
                   autoComplete="email"
                   onChange={(e) => setEmail(e.target.value)}
                 />
-                 <FieldError errors={toErrors(fieldErrors.email)} />
+                <FieldError errors={toErrors(fieldErrors.email)} />
               </Field>
               <Field>
                 <Field className="grid grid-cols-2 gap-4">
                   <Field data-invalid={!!fieldErrors.password}>
                     <FieldLabel htmlFor="password">Password</FieldLabel>
-                    <Input id="password" type="password" required
-                    value={password}
-                    autoComplete="new-password"
-                      onChange={(e) => setPassword(e.target.value)} />
-                     <FieldError errors={toErrors(fieldErrors.password)} />
+                    <Input
+                      id="password"
+                      type="password"
+                      required
+                      value={password}
+                      autoComplete="new-password"
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <FieldError errors={toErrors(fieldErrors.password)} />
                   </Field>
                   <Field data-invalid={!!fieldErrors.confirmPassword}>
                     <FieldLabel htmlFor="confirm-password">
                       Confirm Password
                     </FieldLabel>
-                    <Input id="confirm-password" type="password" required
-                    value={confirmPassword}
-                    autoComplete="new-password"
-                      onChange={(e) => setConfirmPassword(e.target.value)} />
-                    <FieldError errors={toErrors(fieldErrors.confirmPassword)} />
+                    <Input
+                      id="confirm-password"
+                      type="password"
+                      required
+                      value={confirmPassword}
+                      autoComplete="new-password"
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                    />
+                    <FieldError
+                      errors={toErrors(fieldErrors.confirmPassword)}
+                    />
                   </Field>
                 </Field>
                 <FieldDescription>
@@ -106,7 +115,9 @@ export default function SignupForm({
                 </FieldDescription>
               </Field>
               <Field>
-                <Button type="submit" disabled={loading}>{loading ? "Creating Account..." : "Create Account"}</Button>
+                <Button type="submit" disabled={loading}>
+                  {loading ? "Creating Account..." : "Create Account"}
+                </Button>
               </Field>
               <FieldSeparator className="*:data-[slot=field-separator-content]:bg-card">
                 Or continue with

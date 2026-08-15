@@ -15,4 +15,5 @@ export function formatDate(date: string) {
 
 export const normalizeString = (v: string) => v.trim().toLowerCase();
 
-export const toErrors = (messages?: string[]) => messages?.map((message) => ({ message }));
+export const toErrors = (messages?: string[]) =>
+  messages?.map((message) => ({ message }));

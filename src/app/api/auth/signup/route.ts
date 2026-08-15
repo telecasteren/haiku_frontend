@@ -8,9 +8,12 @@ export async function POST(request: Request) {
 
   const parsed = signupSchema.safeParse(body);
   if (!parsed.success) {
-    return new Response(JSON.stringify({ errors: parsed.error.flatten().fieldErrors }), {
-      status: 400,
-    })
+    return new Response(
+      JSON.stringify({ errors: parsed.error.flatten().fieldErrors }),
+      {
+        status: 400,
+      },
+    );
   }
 
   const { confirmPassword: _confirmPassword, ...userInput } = parsed.data;
@@ -24,7 +27,8 @@ export async function POST(request: Request) {
       status: 201,
       headers: {
         "Set-Cookie": `session=${token}; ${cookieOptions}`,
-      } });
+      },
+    });
   } catch (error) {
     const message = error instanceof Error ? error.message : "Signup failed";
     const status = message === "Email already exists" ? 409 : 500;

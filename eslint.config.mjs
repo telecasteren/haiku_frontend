@@ -13,6 +13,12 @@ const eslintConfig = defineConfig([
         "double",
         { avoidEscape: true, allowTemplateLiterals: true },
       ],
+      // allow _prefixed vars to be unused
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        { varsIgnorePattern: "^_", argsIgnorePattern: "^_", destructuredArrayIgnorePattern: "^_" },
+      ]
     },
   },
   // Override default ignores of eslint-config-next.

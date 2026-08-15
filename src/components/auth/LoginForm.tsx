@@ -13,7 +13,7 @@ import {
   FieldGroup,
   FieldLabel,
   FieldSeparator,
-  FieldError
+  FieldError,
 } from "@/components/ui/field";
 import { toErrors } from "@/lib/utils";
 import { useApiHandler } from "@/hooks/useApiHandler";
@@ -27,12 +27,12 @@ export default function LoginForm({
 
   const { submit, fieldErrors, globalError, loading } = useApiHandler(
     "/api/auth/login",
-    "/account"
+    "/account",
   );
 
   async function handleSubmit(e: React.SubmitEvent) {
     e.preventDefault();
-    await submit({ email, password })
+    await submit({ email, password });
   }
 
   return (
@@ -48,7 +48,7 @@ export default function LoginForm({
                 </p>
               </div>
               {globalError && (
-                <div  aria-live="polite">
+                <div aria-live="polite">
                   <FieldError errors={[{ message: globalError }]} />
                 </div>
               )}
@@ -75,7 +75,10 @@ export default function LoginForm({
                     Forgot your password?
                   </a>
                 </div>
-                <Input id="password" type="password" required
+                <Input
+                  id="password"
+                  type="password"
+                  required
                   value={password}
                   autoComplete="current-password"
                   onChange={(e) => setPassword(e.target.value)}
@@ -83,7 +86,9 @@ export default function LoginForm({
                 <FieldError errors={toErrors(fieldErrors.password)} />
               </Field>
               <Field>
-                <Button type="submit" disabled={loading}>{loading ? "Logging in..." : "Login"}</Button>
+                <Button type="submit" disabled={loading}>
+                  {loading ? "Logging in..." : "Login"}
+                </Button>
               </Field>
               <FieldSeparator className="*:data-[slot=field-separator-content]:bg-card">
                 Or continue with

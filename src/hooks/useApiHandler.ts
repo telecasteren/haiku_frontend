@@ -1,7 +1,11 @@
 import { useState } from "react";
 import type { FieldErrors } from "@/components/auth/types";
 
-export const useApiHandler = (url: string, nextUrl: string, method = "POST") => {
+export const useApiHandler = (
+  url: string,
+  nextUrl: string,
+  method = "POST",
+) => {
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [globalError, setGlobalError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -31,11 +35,11 @@ export const useApiHandler = (url: string, nextUrl: string, method = "POST") => 
       window.location.href = nextUrl;
     } catch (err) {
       console.error(err); // debugging
-      setGlobalError("Something went wrong. Please try again.")
+      setGlobalError("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
   }
 
   return { submit, fieldErrors, globalError, loading };
-}
+};

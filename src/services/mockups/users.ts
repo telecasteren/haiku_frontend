@@ -32,8 +32,7 @@ if (!globalForUsers.users) {
       updatedAt: new Date(),
       preferredPaymentMethod: "",
     },
-
-  ]
+  ];
 }
 
 export const users = globalForUsers.users;

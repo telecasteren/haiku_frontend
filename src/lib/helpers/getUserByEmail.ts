@@ -8,7 +8,6 @@ export async function getUserByEmail(email: string): Promise<User | null> {
   return user ?? null;
 }
 
-
 // later when fetching from API
 // const res = await fetch(`${process.env.API_URL}/users?email=${normalizedEmail}`);
 // const user = await res.json();

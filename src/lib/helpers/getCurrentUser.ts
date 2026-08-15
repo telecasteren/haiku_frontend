@@ -12,7 +12,7 @@ export const getCurrentUser = async (): Promise<User | null> => {
   const token = cookieStore.get(SESSION_COOKIE)?.value;
   if (!token) return null;
 
-  const session = await verifySession(token)
+  const session = await verifySession(token);
   if (!session) return null;
 
   const user = users.find((u) => u.id === session.userId);

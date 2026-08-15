@@ -5,15 +5,17 @@ import { getUserByEmail } from "@/lib/helpers/getUserByEmail";
 import { loginSchema } from "@/lib/zod/loginSchema";
 import { updateLastLogin } from "@/lib/helpers/updateLastLogin";
 
-
 export async function POST(request: Request) {
   const body = await request.json();
 
   const parsed = loginSchema.safeParse(body);
   if (!parsed.success) {
-    return new Response(JSON.stringify({ errors: parsed.error.flatten().fieldErrors}), {
-      status: 400,
-    })
+    return new Response(
+      JSON.stringify({ errors: parsed.error.flatten().fieldErrors }),
+      {
+        status: 400,
+      },
+    );
   }
 
   const { email, password } = parsed.data;
@@ -22,20 +24,20 @@ export async function POST(request: Request) {
   if (!user) {
     return new Response(JSON.stringify({ error: "Invalid credentials" }), {
       status: 401,
-    })
+    });
   }
 
   if (user.status !== "active") {
     return new Response(JSON.stringify({ error: "Account is inactive" }), {
       status: 403,
-    })
+    });
   }
 
   const passwordMatch = await compare(password, user.passwordHash);
-  if (!passwordMatch)  {
+  if (!passwordMatch) {
     return new Response(JSON.stringify({ error: "Invalid credentials" }), {
       status: 401,
-    })
+    });
   }
 
   await updateLastLogin(user.id);
@@ -47,5 +49,6 @@ export async function POST(request: Request) {
     status: 200,
     headers: {
       "Set-Cookie": `session=${token}; ${cookieOptions}`,
-    } });
+    },
+  });
 }
