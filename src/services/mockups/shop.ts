@@ -12,6 +12,24 @@ export const ShopItems: Product[] = [
     description: "Oversized T-Shirt with sun emblem on back.",
     image: "/shop/merch/lala-azizli-T-r1Y3vG-7M-unsplash.jpg",
     addedDate: "2025-01-14",
+    reviews: [
+      {
+        id: 1,
+        title: "First review",
+        content: "Beautiful T-Shirt. Would recommend!",
+        author: { id: 1, username: "John Doe" },
+        createdAt: "2026-06-25",
+        rating: 4,
+      },
+      {
+        id: 2,
+        title: "Second review",
+        content: "Ok look and feel, but a little small in size L.",
+        author: { id: 1, username: "John Doe" },
+        createdAt: "2026-06-25",
+        rating: 2,
+      },
+    ],
   },
   {
     id: 2,
@@ -24,6 +42,7 @@ export const ShopItems: Product[] = [
     description: "ESTd coffee mug with location.",
     image: "/shop/merch/calvin-craig-bOg8cRMh6To-unsplash.jpg",
     addedDate: "2026-06-25",
+    reviews: [],
   },
   {
     id: 3,
@@ -36,6 +55,7 @@ export const ShopItems: Product[] = [
     description: "Grace Fitted T-Shirt with Eagle emblem on the back.",
     image: "/shop/merch/keagan-henman-XYtuOYfIg_M-unsplash.jpg",
     addedDate: "2026-06-25",
+    reviews: [],
   },
   {
     id: 4,
@@ -49,6 +69,7 @@ export const ShopItems: Product[] = [
       "Get a random coffee shop artifact by supporting various coffee farmers.",
     image: "/shop/merch/christina-radevich-PoG2cCucTHE-unsplash.jpg",
     addedDate: "2026-06-25",
+    reviews: [],
   },
   {
     id: 5,
@@ -61,6 +82,7 @@ export const ShopItems: Product[] = [
     description: "High-quality coffee beans from Brazil.",
     image: "/shop/coffee/lex-sirikiat-QouiCn7u6kw-unsplash.jpg",
     addedDate: "2026-06-25",
+    reviews: [],
   },
   {
     id: 6,
@@ -74,6 +96,7 @@ export const ShopItems: Product[] = [
       "Perfectly fine, yet it did not meet our quality standards. Offered at a discounted price.",
     image: "/shop/coffee/justus-menke-83ijPo1g9og-unsplash.jpg",
     addedDate: "2026-03-23",
+    reviews: [],
   },
   {
     id: 7,
@@ -86,6 +109,7 @@ export const ShopItems: Product[] = [
     description: "Natural Ethiopian coffee beans of High Quality.",
     image: "/shop/coffee/nathan-dumlao-bx_JfZtQ-Hs-unsplash.jpg",
     addedDate: "2026-03-21",
+    reviews: [],
   },
   {
     id: 8,
@@ -98,6 +122,7 @@ export const ShopItems: Product[] = [
     description: "4 x 6cl Espresso Glasses in thick and sturdy glassware.",
     image: "/shop/equipment/nathan-dumlao-dvuHNTJxIsg-unsplash.jpg",
     addedDate: "2026-08-03",
+    reviews: [],
   },
   {
     id: 9,
@@ -111,6 +136,7 @@ export const ShopItems: Product[] = [
       "High-performance espresso machine by Barsetto. Maintenance service sold separately.",
     image: "/shop/equipment/qingyu-Ft1yz6M6-yQ-unsplash.jpg",
     addedDate: "2026-04-15",
+    reviews: [],
   },
   {
     id: 10,
@@ -123,5 +149,6 @@ export const ShopItems: Product[] = [
     description: "2 x 2.5dl Cappuccino Mugs in thick and sturdy porcelain.",
     image: "/shop/equipment/tabitha-turner-KWZ-rg9o76A-unsplash.jpg",
     addedDate: "2026-06-20",
+    reviews: [],
   },
 ];

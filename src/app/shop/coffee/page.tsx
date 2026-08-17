@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageTitle from "@/components/layout/PageTitle";
 import Hero from "@/components/layout/Hero";
-import ItemCard from "@/components/ItemCard";
+import ProductCard from "@/components/ProductCard";
 import { ShopItems } from "@/services/mockups/shop";
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ export default function CoffeePage() {
 
       <section className="grid grid-cols-1 gap-4 md:grid-cols-2 mt-10 mb-10 ml-10 mr-10 md:ml-20 md:mr-20">
         {filteredItems.map((item) => (
-          <ItemCard
+          <ProductCard
             key={item.id}
             title={item.title}
             slug={item.slug}

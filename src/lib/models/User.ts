@@ -14,3 +14,11 @@ export interface User {
   updatedAt: Date;
   preferredPaymentMethod?: string; // ex. credit card
 }
+
+export interface SafeUser {
+  id: number;
+  role: string;
+  username: string;
+  email?: string;
+  createdAt?: string;
+}

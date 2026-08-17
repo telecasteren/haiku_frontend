@@ -1,3 +1,5 @@
+import type { SafeUser } from "./User";
+
 export type ProductType = "merch" | "beans" | "equipment";
 
 export interface Product {
@@ -11,4 +13,14 @@ export interface Product {
   onSale: boolean;
   image?: string;
   addedDate: string;
+  reviews: Review[];
+}
+
+export interface Review {
+  id: number;
+  title: string;
+  content: string;
+  author: SafeUser;
+  createdAt: string;
+  rating: number;
 }

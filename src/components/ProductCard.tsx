@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-type ItemCardProps = {
+type ProductCardProps = {
   title: string;
   slug: string;
   price: number;
@@ -18,14 +18,14 @@ type ItemCardProps = {
   image: string;
 };
 
-export default function ItemCard({
+export default function ProductCard({
   title,
   slug,
   price,
   onSale,
   description,
   image,
-}: ItemCardProps) {
+}: ProductCardProps) {
   return (
     <Card className="w-full grid md:grid-cols-2 gap-4 items-center p-6">
       <CardHeader className="group relative w-full h-96 overflow-hidden rounded">

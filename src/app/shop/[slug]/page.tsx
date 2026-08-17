@@ -6,6 +6,7 @@ import PageTitle from "@/components/layout/PageTitle";
 import AddToCartBtn from "@/components/AddToCartBtn";
 import { ShopItems } from "@/services/mockups/shop";
 import { ArrowLeft } from "lucide-react";
+import ProductRating from "@/components/products/ProductRating";
 
 export async function generateMetadata({
   params,
@@ -35,6 +36,7 @@ export default async function ProductPage({
   const { slug } = await params;
   const product = slug ? ShopItems.find((b) => b.slug === slug) : undefined;
   const onSale = product?.onSale && product.onSale === true;
+  const reviews = product?.reviews ?? [];
 
   if (!product) {
     return (
@@ -57,7 +59,7 @@ export default async function ProductPage({
   return (
     <section
       aria-label="Product details"
-      className="mx-auto flex min-h-screen w-full max-w-4xl flex-col px-6 pb-20 pt-20 text-foreground"
+      className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 pb-20 pt-20 text-foreground"
     >
       <header className="space-y-5">
         <p className="text-center text-xs font-semibold uppercase tracking-[0.16em] text-foreground/70">
@@ -78,9 +80,9 @@ export default async function ProductPage({
             loading="eager"
           />
         )}
-
         <div className="flex flex-col gap-2 text-base leading-8 text-foreground/90 md:text-lg">
           <h2 className="font-semibold">{product.title}</h2>
+          <ProductRating reviews={reviews} />
           <p>{product.description}</p>
 
           {onSale ? (
@@ -99,6 +101,27 @@ export default async function ProductPage({
           <AddToCartBtn product={product} />
         </div>
       </div>
+
+      {reviews.length > 0 && (
+        <div id="reviews" className="mt-10 md:mt-20">
+          <h3 className="font-semibold text-xl mb-2">Reviews</h3>
+
+          <hr />
+
+          <div className="flex flex-col gap-4 mt-6">
+            {reviews.map((review) => (
+              <div key={review.id}>
+                <p className="font-semibold">{review.title}</p>
+                <p>{review.content}</p>
+                {/*<p>{review.author}</p>*/}
+                <p className="text-xs text-muted-foreground">
+                  {review.createdAt}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </section>
   );
 }
